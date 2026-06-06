@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-brand-orange: #ea580c;
+  --color-brand-orange-light: #fff7ed;
+  --color-brand-orange-border: #fdba74;
+  --color-brand-950: #000000;
+  --color-brand-accent: #06b6d4;
+  --color-surface: #ffffff;
+  --color-surface-2: #f5f5f5;
+  --color-surface-3: #eeeeee;
+  --color-ink: #111111;
+  --color-ink-2: #444444;
+  --color-ink-3: #888888;
+  --color-border: #e0e0e0;
+  
+  /* Additional slate shades used in the codebase */
+  --color-slate-350: #b8c2cc;
+  --color-slate-450: #8892b0;
+  --color-slate-550: #56627a;
+}
+
+/* Glassmorphism panel styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+html {
+  scroll-behavior: smooth;
+  background-color: #000000;
+  color: #f8fafc;
+}
+
+body {
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-color: #000000;
+}
+
+/* Subtle grid background for dark mode */
+.bg-grid-pattern {
+  background: none;
+}
+
+/* Clean card panel for dark mode */
+.card-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-panel-hover {
+  transition: all 0.25s ease;
+}
+
+.card-panel-hover:hover {
+  border-color: #ffffff;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.08);
+  transform: translateY(-3px);
+}
+
+/* White accent border */
+.border-orange {
+  border-color: #ffffff;
+}
+
+/* Section divider line */
+.section-divider {
+  width: 40px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
+/* Tag pill for dark mode */
+.tag-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #e4e4e7;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* High-contrast tag pill */
+.tag-pill-orange {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+
+/* Book mockup */
+.book-container {
+  perspective: 1000px;
+}
+.book {
+  position: relative;
+  width: 160px;
+  height: 230px;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.15);
+}
+.book-container:hover .book {
+  transform: rotateY(-20deg) translateY(-4px);
+}
+.book-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111111;
+  border-radius: 2px 6px 6px 2px;
+  z-index: 10;
+}
+.book-spine {
+  position: absolute;
+  width: 18px;
+  height: 100%;
+  background: #ea580c;
+  transform: rotateY(-90deg) translateZ(0);
+  transform-origin: left;
+  border-radius: 2px 0 0 2px;
+  left: 0;
+  z-index: 9;
+}
+.book::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  top: 2px;
+  left: 4px;
+  z-index: -1;
+  border-radius: 2px 6px 6px 2px;
+  box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Canvas ribbon color for light theme */
+canvas#canvas {
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+}
+
+/* CommitsGrid Animations */
+@keyframes highlight-glow {
+  0%, 100% {
+    background-color: var(--highlight);
+    opacity: 0.85;
+  }
+  50% {
+    background-color: var(--highlight);
+    opacity: 1;
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes flash-glow {
+  0%, 100% {
+    background-color: #161b22;
+  }
+  50% {
+    background-color: #0e4429;
+  }
+}
+
+.animate-highlight {
+  animation: highlight-glow 3s infinite ease-in-out;
+  background-color: var(--highlight);
+}
+
+.animate-flash {
+  animation: flash-glow 4s infinite ease-in-out;
+}
+
+/* Skew Card Blob Animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(-5px);
+  }
+}
+.animate-blob {
+  animation: blob 4s ease-in-out infinite;
+}
+.animation-delay-1000 {
+  animation-delay: -2s;
+}
+
+
