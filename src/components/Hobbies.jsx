@@ -173,15 +173,17 @@ const Hobbies = () => {
             </div>
 
             {/* Scrambled heading title */}
-            <h4
-              ref={elementRef}
-              className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-center select-none uppercase font-sans py-1 min-h-[50px] flex items-center justify-center bg-gradient-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent"
-            >
-              LOADING...
-            </h4>
+            <div className="h-[64px] sm:h-[50px] flex items-center justify-center w-full">
+              <h4
+                ref={elementRef}
+                className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-center select-none uppercase font-sans bg-gradient-to-br from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent"
+              >
+                {hobbies[0].name}
+              </h4>
+            </div>
 
             {/* Active description */}
-            <div className="w-full mt-3 h-[72px]">
+            <div className="w-full mt-3 h-[80px] sm:h-[72px] flex items-start justify-center overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.p
                   key={activeIndex}
@@ -189,7 +191,7 @@ const Hobbies = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto text-center leading-relaxed font-sans min-h-[50px] px-4"
+                  className="text-xs sm:text-sm text-zinc-400 max-w-xl mx-auto text-center leading-relaxed font-sans px-4"
                 >
                   {hobbies[activeIndex].description}
                 </motion.p>

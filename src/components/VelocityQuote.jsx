@@ -89,7 +89,7 @@ MarqueeRow.displayName = "MarqueeRow";
 
 export const VelocityQuote = () => {
   return (
-    <div className="py-16 overflow-hidden border-t border-b border-white/5 bg-black/20 backdrop-blur-sm relative flex flex-col gap-3">
+    <div className="py-16 overflow-hidden border-t border-b border-white/5 bg-black relative flex flex-col gap-3">
       {/* Ambient gradient highlights */}
       <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/20 via-transparent to-zinc-950/20 pointer-events-none z-10"></div>
       

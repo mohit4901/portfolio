@@ -11,6 +11,7 @@ const HackathonRow = ({ win, index }) => {
   return (
     <div
       onMouseEnter={() => changeSlide(index)}
+      onClick={() => changeSlide(index)}
       className="relative py-8 border-b border-white/5 flex flex-col justify-center min-h-[120px] group cursor-pointer"
     >
       {/* Left side content (Title, details, and description) */}
